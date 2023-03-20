@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using WingsOn.Dal.Interfaces;
 using WingsOn.Domain;
@@ -7,6 +8,8 @@ namespace WingsOn.Dal;
 
 public class RepositoryBase<T> : IRepository<T> where T : DomainObject
 {
+    protected readonly CultureInfo DefaultCultureInfo = new("nl-NL");
+    
     protected RepositoryBase()
     {
         Repository = new List<T>();

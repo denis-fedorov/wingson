@@ -1,5 +1,4 @@
-﻿using WingsOn.Domain;
-using WingsOn.Domain.Entities;
+﻿using WingsOn.Domain.Entities;
 
 namespace WingsOn.Dal.Repositories;
 
