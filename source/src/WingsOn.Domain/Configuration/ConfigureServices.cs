@@ -9,6 +9,7 @@ public static class ConfigureServices
     public static IServiceCollection ConfigureDomain(this IServiceCollection services)
     {
         services.AddTransient<IPersonService, PersonService>();
+        services.AddTransient<IFlightService, FlightService>();
 
         return services;
     }

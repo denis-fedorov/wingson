@@ -1,3 +1,4 @@
+using System.Collections.ObjectModel;
 using Swashbuckle.AspNetCore.Annotations;
 using WingsOn.Dal.Configuration;
 using WingsOn.Domain.Configuration;
@@ -27,7 +28,13 @@ app.MapGet("persons/{id:int}", (int id, IPersonService personService)
         .Produces<Person>()
         .Produces(StatusCodes.Status200OK)
         .Produces(StatusCodes.Status404NotFound)
-        .WithMetadata(new SwaggerOperationAttribute(summary: "Endpoint that returns a Person by Id"));
+        .WithMetadata(new SwaggerOperationAttribute(summary: "Endpoint that returns a Person by a person Id"));
+
+app.MapGet("flights/{number}/passengers", (string number, IFlightService flightService) 
+    => Results.Ok(flightService.GetPassengers(number)))
+        .Produces<ReadOnlyCollection<Person>>()
+        .Produces(StatusCodes.Status200OK)
+        .WithMetadata(new SwaggerOperationAttribute(summary: "Endpoint that returns all passengers on the flight by a flight Id"));
 
 app.UseHttpsRedirection();
 

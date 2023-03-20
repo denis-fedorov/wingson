@@ -13,12 +13,12 @@ public sealed class PersonService : IPersonService
         _personsRepository = personsRepository;
     }
 
-    public Person Get(int id)
+    public Person Get(int personId)
     {
-        var person = _personsRepository.Get(id);
+        var person = _personsRepository.Get(personId);
         if (person is null)
         {
-            throw new PersonNotFoundException(id);
+            throw new PersonNotFoundException(personId);
         }
         
         return person;

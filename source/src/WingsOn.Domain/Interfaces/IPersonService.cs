@@ -4,5 +4,5 @@ namespace WingsOn.Domain.Interfaces;
 
 public interface IPersonService
 {
-    public Person Get(int id);
+    public Person Get(int personId);
 }

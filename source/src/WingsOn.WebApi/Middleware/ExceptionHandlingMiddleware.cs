@@ -35,6 +35,7 @@ public sealed class ExceptionHandlingMiddleware
         static int GetStatusCode(Exception exception) => exception switch
         {
             PersonNotFoundException => StatusCodes.Status404NotFound,
+            FlightNotFoundException => StatusCodes.Status404NotFound,
             _ => StatusCodes.Status500InternalServerError
         };
     }
