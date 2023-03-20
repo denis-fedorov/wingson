@@ -4,6 +4,7 @@ using WingsOn.Domain.Configuration;
 using WingsOn.Domain.Entities;
 using WingsOn.Domain.Interfaces;
 using WingsOn.WebApi.Configuration;
+using WingsOn.WebApi.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services
@@ -18,6 +19,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseMiddleware<ExceptionHandlingMiddleware>();
 
 app.MapGet("persons/{id:int}", (int id, IPersonService personService) 
     => Results.Ok(personService.Get(id)))
