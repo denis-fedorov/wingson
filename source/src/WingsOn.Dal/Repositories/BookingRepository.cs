@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
-using WingsOn.Dal.Interfaces;
 using WingsOn.Domain.Entities;
+using WingsOn.Domain.Interfaces;
 
 namespace WingsOn.Dal.Repositories;
 

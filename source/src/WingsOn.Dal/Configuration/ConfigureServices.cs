@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using WingsOn.Dal.Interfaces;
 using WingsOn.Dal.Repositories;
 using WingsOn.Domain.Entities;
+using WingsOn.Domain.Interfaces;
 
 namespace WingsOn.Dal.Configuration;
 
