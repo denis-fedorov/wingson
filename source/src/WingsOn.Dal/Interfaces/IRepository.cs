@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using WingsOn.Domain;
 
-namespace WingsOn.Dal;
+namespace WingsOn.Dal.Interfaces;
 
 public interface IRepository<T> where T : DomainObject
 {

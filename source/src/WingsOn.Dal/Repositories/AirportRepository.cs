@@ -1,6 +1,7 @@
 ﻿using WingsOn.Domain;
+using WingsOn.Domain.Entities;
 
-namespace WingsOn.Dal;
+namespace WingsOn.Dal.Repositories;
 
 public class AirportRepository : RepositoryBase<Airport>
 {

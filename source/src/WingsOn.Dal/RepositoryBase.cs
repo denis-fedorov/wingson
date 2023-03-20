@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using WingsOn.Dal.Interfaces;
 using WingsOn.Domain;
 
 namespace WingsOn.Dal;
