@@ -1,8 +1,7 @@
-﻿namespace WingsOn.Domain
+﻿namespace WingsOn.Domain;
+
+public enum GenderType
 {
-    public enum GenderType
-    {
-        Male,
-        Female
-    }
+    Male,
+    Female
 }

@@ -1,12 +1,11 @@
-﻿namespace WingsOn.Domain
+﻿namespace WingsOn.Domain;
+
+public class DomainObject
 {
-    public class DomainObject
+    protected DomainObject()
     {
-        protected DomainObject()
-        {
 
-        }
-
-        public int Id { get; set; }
     }
+
+    public int Id { get; set; }
 }
