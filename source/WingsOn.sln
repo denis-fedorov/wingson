@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "src\WingsOn.Dal", "src\WingsOn.Dal\WingsOn.Dal.csproj", "{2B68B6A5-72F1-4DD8-849C-B0A7365A0480}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "src\WingsOn.Domain", "src\WingsOn.Domain\WingsOn.Domain.csproj", "{F1792ED2-360F-4864-8A3D-3FAAE3E9FC4B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{1B196DA9-DF59-4AAB-8C01-FE862BB446CF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "settings", "settings", "{6A0C20D2-D7FF-4DEC-B26A-287314E6C972}"
+	ProjectSection(SolutionItems) = preProject
+		Directory.Build.props = Directory.Build.props
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2B68B6A5-72F1-4DD8-849C-B0A7365A0480}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B68B6A5-72F1-4DD8-849C-B0A7365A0480}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B68B6A5-72F1-4DD8-849C-B0A7365A0480}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B68B6A5-72F1-4DD8-849C-B0A7365A0480}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1792ED2-360F-4864-8A3D-3FAAE3E9FC4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1792ED2-360F-4864-8A3D-3FAAE3E9FC4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1792ED2-360F-4864-8A3D-3FAAE3E9FC4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1792ED2-360F-4864-8A3D-3FAAE3E9FC4B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2B68B6A5-72F1-4DD8-849C-B0A7365A0480} = {1B196DA9-DF59-4AAB-8C01-FE862BB446CF}
+		{F1792ED2-360F-4864-8A3D-3FAAE3E9FC4B} = {1B196DA9-DF59-4AAB-8C01-FE862BB446CF}
+	EndGlobalSection
+EndGlobal
