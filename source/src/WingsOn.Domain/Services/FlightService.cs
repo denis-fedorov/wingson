@@ -18,7 +18,7 @@ public sealed class FlightService : IFlightService
         _flightRepository = flightRepository;
     }
 
-    public ReadOnlyCollection<Person> GetPassengers(string flightNumber)
+    public ReadOnlyCollection<Person> GetPassengers(string flightNumber, GenderType? genderType)
     {
         var flight = GetByNumber(flightNumber);
         if (flight is null)
@@ -30,11 +30,16 @@ public sealed class FlightService : IFlightService
         var passengers = _bookingRepository
             .GetAll()
             .Where(booking => booking.Flight?.Id == flightId)
-            .SelectMany(booking => booking.Passengers)
+            .SelectMany(booking => booking.Passengers);
+
+        if (genderType is not null)
+        {
+            passengers = passengers.Where(p => p.Gender == genderType);
+        }
+
+        return passengers
             .ToList()
             .AsReadOnly();
-
-        return passengers;
     }
 
     private Flight GetByNumber(string flightNumber)

@@ -5,5 +5,5 @@ namespace WingsOn.Domain.Interfaces;
 
 public interface IFlightService
 {
-    public ReadOnlyCollection<Person> GetPassengers(string flightNumber);
+    public ReadOnlyCollection<Person> GetPassengers(string flightNumber, GenderType? genderType);
 }

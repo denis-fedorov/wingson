@@ -6,6 +6,7 @@ using WingsOn.Domain.Entities;
 using WingsOn.Domain.Interfaces;
 using WingsOn.WebApi.Configuration;
 using WingsOn.WebApi.Middleware;
+using WingsOn.WebApi.Validators;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services
@@ -30,11 +31,18 @@ app.MapGet("persons/{id:int}", (int id, IPersonService personService)
         .Produces(StatusCodes.Status404NotFound)
         .WithMetadata(new SwaggerOperationAttribute(summary: "Endpoint that returns a Person by a person Id"));
 
-app.MapGet("flights/{number}/passengers", (string number, IFlightService flightService) 
-    => Results.Ok(flightService.GetPassengers(number)))
+app.MapGet("flights/{number}/passengers", (string number, int? gender, IFlightService flightService) =>
+    {
+        var genderType = GenderValidator.TryParse(gender);
+        
+        return Results.Ok(flightService.GetPassengers(number, genderType));
+    })
         .Produces<ReadOnlyCollection<Person>>()
         .Produces(StatusCodes.Status200OK)
-        .WithMetadata(new SwaggerOperationAttribute(summary: "Endpoint that returns all passengers on the flight by a flight Id"));
+        .Produces(StatusCodes.Status400BadRequest)
+        .WithMetadata(new SwaggerOperationAttribute(
+            summary: "Endpoint that returns all passengers on the flight by a flight Id",
+            description: "There is an optional filter by a gender"));
 
 app.UseHttpsRedirection();
 
