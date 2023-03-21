@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Runtime.Serialization;
 
 namespace WingsOn.Domain.Exceptions;
 
 [Serializable]
+[ExcludeFromCodeCoverage(Justification = "A domain exception")]
 public class PersonNotFoundException : Exception
 {
     public PersonNotFoundException(int id)

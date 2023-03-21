@@ -6,7 +6,7 @@ namespace WingsOn.Domain.Interfaces;
 
 public interface IFlightService
 {
-    public ReadOnlyCollection<Person> GetPassengers(string flightNumber, GenderType? genderType);
+    public ReadOnlyCollection<Person> GetPassengers(string flightNumber, GenderType? genderType = null);
 
     public void ValidatePassengerForFlight(string flightNumber, int personId);
 

@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Runtime.Serialization;
 
 namespace WingsOn.Domain.Exceptions;
 
 [Serializable]
+[ExcludeFromCodeCoverage(Justification = "A domain exception")]
 public class PassengerAlreadyExistsOnFlightException : Exception
 {
     public PassengerAlreadyExistsOnFlightException(string flightNumber, int personId)

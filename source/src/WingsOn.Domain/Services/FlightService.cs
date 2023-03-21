@@ -24,7 +24,7 @@ public sealed class FlightService : IFlightService
         _personService = personService;
     }
 
-    public ReadOnlyCollection<Person> GetPassengers(string flightNumber, GenderType? genderType)
+    public ReadOnlyCollection<Person> GetPassengers(string flightNumber, GenderType? genderType = null)
     {
         ArgumentException.ThrowIfNullOrEmpty(flightNumber);
         
@@ -123,8 +123,13 @@ public sealed class FlightService : IFlightService
     private int GenerateFreeBookingId()
     {
         // a small hack to get the unused id (should be done on the DAL layer in the real world)
-        var lastBookingId = _bookingRepository
-            .GetAll()
+        var allBookings = _bookingRepository.GetAll().ToList();
+        if (allBookings.Count == 0)
+        {
+            return 1;
+        }
+        
+        var lastBookingId = allBookings
             .Max(b => b.Id);
 
         return lastBookingId + 1;
