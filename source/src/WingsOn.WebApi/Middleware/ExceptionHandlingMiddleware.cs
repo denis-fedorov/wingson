@@ -29,14 +29,24 @@ public sealed class ExceptionHandlingMiddleware
         var statusCode = GetStatusCode(exception);
         
         context.Response.StatusCode = statusCode;
-        context.Response.ContentType = "text/plain";
+        context.Response.ContentType = "application/json";
 
-        return context.Response.WriteAsync(exception.Message);
+        // a small hack for incorrect date-time format mapping
+        var message = exception is BadHttpRequestException
+            ? "Invalid properties type in the model (e.g. DateTime format)"
+            : exception.Message;
+
+        return context.Response.WriteAsJsonAsync(value: new { errorMessage = message });
 
         static int GetStatusCode(Exception exception) => exception switch
         {
+            // a special case - bad date-time format
+            BadHttpRequestException => StatusCodes.Status400BadRequest,
+            
             InvalidGenderParamException => StatusCodes.Status400BadRequest,
             InvalidUpdateAddressModelException => StatusCodes.Status400BadRequest,
+            InvalidAddPassengerModelException => StatusCodes.Status400BadRequest,
+            PassengerAlreadyExistsOnFlightException => StatusCodes.Status400BadRequest,
             PersonNotFoundException => StatusCodes.Status404NotFound,
             FlightNotFoundException => StatusCodes.Status404NotFound,
             PassengerNotFoundForFlightException => StatusCodes.Status404NotFound,
