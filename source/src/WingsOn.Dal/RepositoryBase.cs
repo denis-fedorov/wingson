@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-using WingsOn.Dal.Interfaces;
 using WingsOn.Domain;
+using WingsOn.Domain.Interfaces;
 
 namespace WingsOn.Dal;
 
@@ -15,7 +15,7 @@ public class RepositoryBase<T> : IRepository<T> where T : DomainObject
         Repository = new List<T>();
     }
 
-    protected List<T> Repository;
+    protected readonly List<T> Repository;
 
     public IEnumerable<T> GetAll()
     {

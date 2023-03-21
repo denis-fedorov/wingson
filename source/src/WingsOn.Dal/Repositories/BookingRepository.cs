@@ -1,16 +1,14 @@
 ﻿using System;
 using System.Linq;
 using WingsOn.Domain.Entities;
+using WingsOn.Domain.Interfaces;
 
 namespace WingsOn.Dal.Repositories;
 
 public class BookingRepository : RepositoryBase<Booking>
 {
-    public BookingRepository() 
+    public BookingRepository(IRepository<Person> persons, IRepository<Flight> flights)
     {
-        var persons = new PersonRepository();
-        var flights = new FlightRepository();
-
         Repository.AddRange(new []
         {
             new Booking
