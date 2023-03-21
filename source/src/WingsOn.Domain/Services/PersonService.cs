@@ -1,4 +1,5 @@
-﻿using WingsOn.Domain.Entities;
+﻿using System;
+using WingsOn.Domain.Entities;
 using WingsOn.Domain.Exceptions;
 using WingsOn.Domain.Interfaces;
 
@@ -22,5 +23,15 @@ public sealed class PersonService : IPersonService
         }
         
         return person;
+    }
+
+    public void UpdateAddress(int personId, string address)
+    {
+        ArgumentException.ThrowIfNullOrEmpty(address);
+        
+        var person = Get(personId);
+        person.Address = address;
+        
+        _personsRepository.Save(person);
     }
 }

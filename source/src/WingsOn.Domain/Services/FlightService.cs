@@ -20,6 +20,8 @@ public sealed class FlightService : IFlightService
 
     public ReadOnlyCollection<Person> GetPassengers(string flightNumber, GenderType? genderType)
     {
+        ArgumentException.ThrowIfNullOrEmpty(flightNumber);
+        
         var flight = GetByNumber(flightNumber);
         if (flight is null)
         {
@@ -40,6 +42,29 @@ public sealed class FlightService : IFlightService
         return passengers
             .ToList()
             .AsReadOnly();
+    }
+
+    public void ValidatePassengerForFlight(string flightNumber, int personId)
+    {
+        ArgumentException.ThrowIfNullOrEmpty(flightNumber);
+        
+        var flight = GetByNumber(flightNumber);
+        if (flight is null)
+        {
+            throw new FlightNotFoundException(flightNumber);
+        }
+        
+        var flightId = flight.Id;
+        var passengerExists = _bookingRepository
+            .GetAll()
+            .Where(booking => booking.Flight?.Id == flightId)
+            .SelectMany(booking => booking.Passengers)
+            .Any(p => p.Id == personId);
+
+        if (!passengerExists)
+        {
+            throw new PassengerNotFoundForFlightException(flightNumber, personId);
+        }
     }
 
     private Flight GetByNumber(string flightNumber)

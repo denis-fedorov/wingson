@@ -36,8 +36,10 @@ public sealed class ExceptionHandlingMiddleware
         static int GetStatusCode(Exception exception) => exception switch
         {
             InvalidGenderParamException => StatusCodes.Status400BadRequest,
+            InvalidUpdateAddressModelException => StatusCodes.Status400BadRequest,
             PersonNotFoundException => StatusCodes.Status404NotFound,
             FlightNotFoundException => StatusCodes.Status404NotFound,
+            PassengerNotFoundForFlightException => StatusCodes.Status404NotFound,
             _ => StatusCodes.Status500InternalServerError
         };
     }
