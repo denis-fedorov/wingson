@@ -13,7 +13,6 @@
     <ItemGroup>
       <ProjectReference Include="..\WingsOn.Dal\WingsOn.Dal.csproj" />
       <ProjectReference Include="..\WingsOn.Domain\WingsOn.Domain.csproj" />
-      <ProjectReference Include="..\WingsOn.SharedKernel\WingsOn.SharedKernel.csproj" />
     </ItemGroup>
 
 </Project>
