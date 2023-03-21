@@ -1,3 +1,8 @@
+# Requirements
+- [.NET 7](https://dotnet.microsoft.com/en-us/download/dotnet/7.0)
+- Visual Studio / JetBrains Rider/ Visual Studio Code
+
+
 # Narrative:
 As a Front End Developer I need a REST-ful Web API for my ticketing website, so that I can access and
 manage information related to the passenger.
