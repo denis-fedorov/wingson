@@ -16,6 +16,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "settings", "settings", "{6A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WingsOn.WebApi", "src\WingsOn.WebApi\WingsOn.WebApi.csproj", "{DE80C66F-C3B4-49FA-A079-40972CDCB9AB}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{AD9310F9-396C-45A5-9681-6956F0B16593}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WingsOn.Domain.UnitTests", "tests\WingsOn.Domain.UnitTests\WingsOn.Domain.UnitTests.csproj", "{F8CC6456-4AB0-4A6E-850F-19FDCD53D333}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -34,6 +38,10 @@ Global
 		{DE80C66F-C3B4-49FA-A079-40972CDCB9AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DE80C66F-C3B4-49FA-A079-40972CDCB9AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DE80C66F-C3B4-49FA-A079-40972CDCB9AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8CC6456-4AB0-4A6E-850F-19FDCD53D333}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8CC6456-4AB0-4A6E-850F-19FDCD53D333}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8CC6456-4AB0-4A6E-850F-19FDCD53D333}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8CC6456-4AB0-4A6E-850F-19FDCD53D333}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -42,5 +50,6 @@ Global
 		{2B68B6A5-72F1-4DD8-849C-B0A7365A0480} = {1B196DA9-DF59-4AAB-8C01-FE862BB446CF}
 		{F1792ED2-360F-4864-8A3D-3FAAE3E9FC4B} = {1B196DA9-DF59-4AAB-8C01-FE862BB446CF}
 		{DE80C66F-C3B4-49FA-A079-40972CDCB9AB} = {1B196DA9-DF59-4AAB-8C01-FE862BB446CF}
+		{F8CC6456-4AB0-4A6E-850F-19FDCD53D333} = {AD9310F9-396C-45A5-9681-6956F0B16593}
 	EndGlobalSection
 EndGlobal
